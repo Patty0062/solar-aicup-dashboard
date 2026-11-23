@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solar AI CUP Dashboard</title>
+<style>
+:root{font-family:system-ui,"Noto Sans TC",sans-serif;color:#e5e7eb;background:#0b1220}
+*{box-sizing:border-box}
+body{max-width:1120px;margin:auto;padding:32px 20px}
+h1{font-size:clamp(28px,5vw,42px);margin-bottom:8px}
+h2{font-size:20px;margin-top:36px}
+p,.muted{color:#9ca3af}
+header{margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#172235;border:1px solid #29374b;border-radius:14px;padding:22px}
+.big{font-size:32px;font-weight:750;margin-top:12px;color:#6ee7b7}
+.tablewrap{overflow-x:auto;border-radius:14px;border:1px solid #29374b}
+table{width:100%;border-collapse:collapse;background:#172235;white-space:nowrap}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid #29374b}
+th{color:#a5b4fc;font-size:13px}
+tr:last-child td{border-bottom:0}
+.pending{color:#fbbf24}
+.good{color:#6ee7b7}
+footer{margin-top:36px;font-size:13px;color:#9ca3af}
+a{color:#93c5fd}
+</style>
+</head>
+<body>
+<header>
+<h1>☀️ Solar AI CUP Dashboard</h1>
+<p>太陽能板異常偵測與成因推理 · 實驗追蹤</p>
+</header>
+
+<section class="grid">
+<div class="card"><div class="muted">最佳官方總分</div><div class="big" id="best">—</div></div>
+<div class="card"><div class="muted">最佳版本</div><div class="big" id="bestname" style="font-size:20px">—</div></div>
+<div class="card"><div class="muted">實驗數量</div><div class="big" id="count">—</div></div>
+<div class="card"><div class="muted">待評測版本</div><div class="big" id="pending">—</div></div>
+</section>
+
+<h2>官方成績比較</h2>
+<div class="tablewrap">
+<table>
+<thead><tr>
+<th>實驗版本</th><th>狀態</th><th>總分</th>
+<th>F1_TEXT</th><th>F1_TIoU</th>
+<th>Crack</th><th>Hotspot</th><th>Solar panel</th>
+</tr></thead>
+<tbody id="records"></tbody>
+</table>
+</div>
+
+<h2>實驗備註</h2>
+<div id="notes" class="card"></div>
+
+<footer>
+資料來源：<a href="data/experiments.json">experiments.json</a>
+ · <a href="https://github.com/Patty0062/solar-aicup-dashboard">GitHub Repository</a>
+</footer>
+
+<script>
+const fmt = x => x == null ? "—" : Number(x).toFixed(7).replace(/0+$/,"").replace(/\.$/,"");
+function cell(row, value, className=""){
+  const td=document.createElement("td");
+  td.textContent=value;
+  td.className=className;
+  row.appendChild(td);
+}
+async function load(){
+  const response=await fetch("./data/experiments.json",{cache:"no-store"});
+  if(!response.ok) throw Error("資料載入失敗");
+  const data=await response.json();
+  const scored=data.filter(x=>typeof x.score==="number");
+  const best=[...scored].sort((a,b)=>b.score-a.score)[0];
+  document.getElementById("best").textContent=best?fmt(best.score):"—";
+  document.getElementById("bestname").textContent=best?.name??"—";
+  document.getElementById("count").textContent=data.length;
+  document.getElementById("pending").textContent=data.filter(x=>x.status==="pending").length;
+  const tbody=document.getElementById("records");
+  for(const x of [...data].sort((a,b)=>(b.score??-1)-(a.score??-1))){
+    const tr=document.createElement("tr");
+    const pending=x.status==="pending";
+    cell(tr,x.name);
+    cell(tr,pending?"待評測":"已評測",pending?"pending":"good");
+    for(const k of ["score","f1_text","f1_tiou","tiou_crack","tiou_hotspot","tiou_solar_panel"])
+      cell(tr,fmt(x[k]));
+    tbody.appendChild(tr);
+  }
+  const notes=document.getElementById("notes");
+  for(const x of data){
+    if(!x.notes) continue;
+    const p=document.createElement("p");
+    p.textContent=x.name+"： "+x.notes;
+    notes.appendChild(p);
+  }
+  if(!notes.children.length) notes.textContent="尚無實驗備註";
+}
+load().catch(err=>{
+  document.getElementById("records").textContent=err.message;
+});
+</script>
+</body>
+</html>

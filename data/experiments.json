@@ -6,6 +6,29 @@
     "f1_tiou": 0.53192,
     "tiou_crack": 0.50014,
     "tiou_hotspot": 0.20672,
-    "tiou_solar_panel": 0.88888
+    "tiou_solar_panel": 0.88888,
+    "status": "evaluated"
+  },
+  {
+    "name": "llama3_tw_8b_old",
+    "score": 0.6618269,
+    "f1_text": 0.96494,
+    "f1_tiou": 0.53192,
+    "tiou_crack": 0.50014,
+    "tiou_hotspot": 0.20672,
+    "tiou_solar_panel": 0.88888,
+    "status": "evaluated",
+    "notes": "隊友舊版 Llama-3-Taiwan-8B；與 baseline 偵測框完全相同"
+  },
+  {
+    "name": "llama3_hotspot_015",
+    "score": null,
+    "f1_text": null,
+    "f1_tiou": null,
+    "tiou_crack": null,
+    "tiou_hotspot": null,
+    "tiou_solar_panel": null,
+    "status": "pending",
+    "notes": "Hotspot 725 個；保留 665 個舊成因，新增 112 個通用成因"
   }
 ]
