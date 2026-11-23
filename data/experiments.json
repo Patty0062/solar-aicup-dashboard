@@ -18,7 +18,7 @@
     "tiou_hotspot": 0.20672,
     "tiou_solar_panel": 0.88888,
     "status": "evaluated",
-    "notes": "隊友舊版 Llama-3-Taiwan-8B；與 baseline 偵測框完全相同"
+    "notes": "舊版 Llama-3-Taiwan-8B；與 baseline 偵測框完全相同"
   },
   {
     "name": "llama3_hotspot_015",
