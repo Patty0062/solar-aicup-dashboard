@@ -1,0 +1,15 @@
+
+[
+  {
+    "name": "baseline_v1",
+    "score": 0.6348176,
+    "f1_text": 0.87491,
+    "f1_tiou": 0.53192,
+    "tiou_crack": 0.50014,
+    "tiou_hotspot": 0.20672,
+    "tiou_solar_panel": 0.88888,
+    "img_size": 1280,
+    "conf": 0.25,
+    "note": "第一版官方排行榜成績"
+  }
+]
