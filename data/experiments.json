@@ -22,13 +22,13 @@
   },
   {
     "name": "llama3_hotspot_015",
-    "score": null,
-    "f1_text": null,
-    "f1_tiou": null,
-    "tiou_crack": null,
-    "tiou_hotspot": null,
-    "tiou_solar_panel": null,
-    "status": "pending",
-    "notes": "Hotspot 725 個；保留 665 個舊成因，新增 112 個通用成因"
+    "score": 0.6519432,
+    "f1_text": 0.92688,
+    "f1_tiou": 0.5341,
+    "tiou_crack": 0.50014,
+    "tiou_hotspot": 0.2141,
+    "tiou_solar_panel": 0.88807,
+    "status": "evaluated",
+    "notes": "Hotspot 725 個；沿用 665 個舊成因，新增 112 個通用成因。定位成績提升，但 F1_TEXT 下降。"
   }
 ]
