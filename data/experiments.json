@@ -30,5 +30,16 @@
     "tiou_solar_panel": 0.88807,
     "status": "evaluated",
     "notes": "Hotspot 725 個；沿用 665 個舊成因，新增 112 個通用成因。定位成績提升，但 F1_TEXT 下降。"
+  },
+  {
+    "name": "llama3_grid_v2",
+    "score": 0.5238984,
+    "f1_text": 0.57683,
+    "f1_tiou": 0.50121,
+    "tiou_crack": 0.50014,
+    "tiou_hotspot": 0.1039,
+    "tiou_solar_panel": 0.89958,
+    "status": "evaluated",
+    "notes": "EXP-010；本地Macro F1=0.98610，Hotspot閾值0.75，Crack閾值0.25，Solar Panel閾值0.45。Hotspot僅153個，官方成績明顯下降。"
   }
 ]
