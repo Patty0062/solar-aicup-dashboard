@@ -40,6 +40,17 @@
     "tiou_hotspot": 0.1039,
     "tiou_solar_panel": 0.89958,
     "status": "evaluated",
-    "notes": "EXP-010；本地Macro F1=0.98610，Hotspot閾值0.75，Crack閾值0.25，Solar Panel閾值0.45。Hotspot僅153個，官方成績明顯下降。"
+    "notes": "EXP-010；Hotspot閾值0.75，預測153個，排名234/304。"
+  },
+  {
+    "name": "llama3_hotspot_015_refined",
+    "score": 0.6525239,
+    "f1_text": 0.92882,
+    "f1_tiou": 0.5341,
+    "tiou_crack": 0.50014,
+    "tiou_hotspot": 0.2141,
+    "tiou_solar_panel": 0.88807,
+    "status": "evaluated",
+    "notes": "EXP-019；112筆成因更新為17種文字，定位完全不變，總分提升0.0005807，排名169/304。"
   }
 ]
