@@ -52,5 +52,15 @@
     "tiou_solar_panel": 0.88807,
     "status": "evaluated",
     "notes": "EXP-019；112筆成因更新為17種文字，定位完全不變，總分提升0.0005807，排名169/304。"
+  },
+  {
+    "name": "llama3_crack_selective",
+    "score": 0.671409,
+    "f1_text": 0.96494,
+    "f1_tiou": 0.5456,
+    "tiou_crack": 0.54121,
+    "tiou_hotspot": 0.20672,
+    "tiou_solar_panel": 0.88888,
+    "status": "evaluated"
   }
 ]
