@@ -62,5 +62,25 @@
     "tiou_hotspot": 0.20672,
     "tiou_solar_panel": 0.88888,
     "status": "evaluated"
+  },
+  {
+    "name": "llama3_coordinate_refined",
+    "score": 0.6715633,
+    "f1_text": 0.96494,
+    "f1_tiou": 0.54582,
+    "tiou_crack": 0.54121,
+    "tiou_hotspot": 0.20738,
+    "tiou_solar_panel": 0.88888,
+    "status": "evaluated"
+  },
+  {
+    "name": "llama3_f3",
+    "score": 0.6334034,
+    "f1_text": 0.85538,
+    "f1_tiou": 0.53827,
+    "tiou_crack": 0.54121,
+    "tiou_hotspot": 0.1868,
+    "tiou_solar_panel": 0.88679,
+    "status": "evaluated"
   }
 ]
