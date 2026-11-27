@@ -82,5 +82,15 @@
     "tiou_hotspot": 0.1868,
     "tiou_solar_panel": 0.88679,
     "status": "evaluated"
+  },
+  {
+    "name": "llama3_cnn_s1",
+    "score": 0.6709267,
+    "f1_text": 0.96494,
+    "f1_tiou": 0.54491,
+    "tiou_crack": 0.54121,
+    "tiou_hotspot": 0.20486,
+    "tiou_solar_panel": 0.88868,
+    "status": "evaluated"
   }
 ]
