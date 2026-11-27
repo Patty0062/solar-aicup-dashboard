@@ -92,5 +92,15 @@
     "tiou_hotspot": 0.20486,
     "tiou_solar_panel": 0.88868,
     "status": "evaluated"
+  },
+  {
+    "name": "llama3_hotspot_polygon",
+    "score": 0.669414,
+    "f1_text": 0.96494,
+    "f1_tiou": 0.54275,
+    "tiou_crack": 0.54121,
+    "tiou_hotspot": 0.19817,
+    "tiou_solar_panel": 0.88888,
+    "status": "evaluated"
   }
 ]
